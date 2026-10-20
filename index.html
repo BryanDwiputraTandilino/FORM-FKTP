@@ -196,12 +196,6 @@ footer{text-align:center;font-size:.8rem;color:var(--ink-3);padding-top:26px}
         <input type="tel" id="hp" inputmode="numeric" autocomplete="tel" placeholder="08xxxxxxxxxx">
         <p class="errmsg" id="err-hp">Masukkan nomor HP yang benar, minimal 10 angka.</p>
       </div>
-
-      <div class="field">
-        <label for="email">Email <span style="font-weight:500;color:var(--ink-3)">(boleh dikosongkan)</span></label>
-        <input type="text" id="email" inputmode="email" autocomplete="email" placeholder="nama@contoh.com">
-        <p class="errmsg" id="err-email">Format email belum benar.</p>
-      </div>
     </section>
 
     <section class="card">
@@ -401,8 +395,6 @@ function periksa(){
   cek(!jab.value, 'jabatan', 'err-jabatan');
   if(!fLain.hidden) cek(document.getElementById('lain').value.trim().length < 2, 'lain', 'err-lain');
   cek(document.getElementById('hp').value.replace(/\D/g,'').length < 10, 'hp', 'err-hp');
-  const em = document.getElementById('email').value.trim();
-  cek(em.length > 0 && !/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(em), 'email', 'err-email');
   cek(!adaTtd, 'pad', 'err-ttd');
   const konf = document.getElementById('konf').checked;
   document.getElementById('kotak-konf').classList.toggle('err', !konf);
@@ -439,7 +431,6 @@ document.getElementById('form').addEventListener('submit', async e => {
     jabatan: jab.value === 'Administrasi Lainnya'
              ? 'Administrasi Lainnya - ' + document.getElementById('lain').value.trim() : jab.value,
     hp: document.getElementById('hp').value.trim(),
-    email: document.getElementById('email').value.trim(),
     ttd: kanvas.toDataURL('image/png')
   };
 
