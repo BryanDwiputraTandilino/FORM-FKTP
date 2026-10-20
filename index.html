@@ -120,6 +120,8 @@ select{appearance:none;background-image:url("data:image/svg+xml;charset=utf8,%3C
   display:flex;align-items:center;justify-content:center}
 .selesai h2{font-size:1.4rem;margin:0 0 10px;letter-spacing:-.02em}
 .selesai p{color:var(--ink-2);margin:0 auto;max-width:36ch;font-size:.95rem}
+.selesai .lagi{margin-top:26px;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;
+  padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;color:var(--ink)}
 footer{text-align:center;font-size:.8rem;color:var(--ink-3);padding-top:26px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
@@ -233,6 +235,7 @@ footer{text-align:center;font-size:.8rem;color:var(--ink-3);padding-top:26px}
   <div class="tik"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 7"/></svg></div>
   <h2>Data Anda sudah terkirim</h2>
   <p id="pesan-selesai"></p>
+  <button type="button" class="lagi" id="lagi">Isi untuk petugas lain</button>
 </div>
 
 <footer>339 FKTP terdaftar &middot; Data per Oktober 2026</footer>
@@ -458,6 +461,8 @@ document.getElementById('form').addEventListener('submit', async e => {
     tombol.disabled = false; tombol.textContent = 'Kirim data';
   }
 });
+
+document.getElementById('lagi').addEventListener('click', () => location.reload());
 
 ukur();
 </script>
